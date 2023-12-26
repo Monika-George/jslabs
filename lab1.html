@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+var firstName=prompt("enter your first name");
+var lastName=prompt("enter your last name");
+var fullName=firstName + ' ' + lastName ;
+var isConfirmed = confirm("is your name  " + fullName + "?");
+if (isConfirmed) {
+    var birthYear =Number(prompt("enter your birth year"));
+    var age= 2023-birthYear;
+    alert('welcome' +' ' + fullName + ' ' + 'your age is ' +age);
+    document.write(" welcome" +' ' + fullName + ' ' + 'your age is' + ' ' + age );
+}
+else{
+alert('it is not the right name'); 
+}
+</script>
+
+</br>
+<script>
+    var firstNum=Number(prompt("enter first number"));
+    var secondNum=Number(prompt("enter second number"));
+    var sum= firstNum + secondNum;
+    alert("the sumation of 2 numbers is : " + sum);
+    document.write("the sumation of 2 numbers is : " + sum);
+</script>
+
+</body>
+
+</html>
