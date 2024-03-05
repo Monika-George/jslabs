@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    </head>
+
+<body>
+
+    <script>
+
+while (true) {
+    let userInput = prompt("Please enter your age:");
+
+    if (userInput === null) {
+        alert("Goodbye!");
+        break;
+    }
+
+    let age = Number(userInput);
+
+    if (isNaN(age) || age <= 0) {
+        alert("Please enter a valid positive number for age");
+        continue;
+    }
+
+    if (age >= 1 && age <= 10) {
+        alert("You are a child");
+    } else if (age >= 11 && age <= 18) {
+        alert("You are a teenager");
+    } else if (age >= 19 && age <= 50) {
+        alert("You are a grown up");
+    } else {
+        alert("You are old");
+    }
+}
+
+    </script>
+    </br>
+    <script>
+ 
+let str = prompt("Please enter a string:");
+
+if (str === null || str === "") {
+    alert("No input provided..bye");
+} else {
+   
+    str = str.toLowerCase();
+     
+    let vowelCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+       
+        if (str[i] === 'a' || str[i] === 'e' || str[i] === 'i' || str[i] === 'o' || str[i] === 'u') {
+           
+            vowelCount++;
+        }
+    }
+
+   alert(`The number of vowels in the string is: ${vowelCount}`);
+}
+
+    
+
+    </script>
+    </br>
+    <script>
+
+        let hourInput = prompt("enter hour in 24 format");
+
+       if(hourInput === null || hourInput === ""){
+           alert("No input provided ..bye");
+        }else {
+        let hour12 = hourInput % 12 || 12 ;
+        let period = hourInput < 12 ? "AM" : "PM" ;
+        alert("The time is " + hour12 + period);
+      }
+    //      function convertTo12Hour(hour) {
+    // let hour12 = hour % 12 || 12;
+    // let period = hour < 12 ? "AM" : "PM"; 
+    // return hour12 + period;
+//}
+    </script>
+
+
+</body>
+
+</html>
