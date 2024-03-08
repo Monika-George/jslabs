@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #33c93b;
+  }
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #17b624;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .error-message {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+  <form id="loginForm" onsubmit="validateForm(event)">
+    <input type="text" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+  <p id="errorMessage" class="error-message"></p>
+</div>
+
+<script>
+  function validateForm(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorMessage = document.getElementById('errorMessage');
+    
+
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    if (!email || !password) {
+      errorMessage.textContent = 'Please enter both email and password';
+      return;
+    }
+
+    if (!passwordPattern.test(password)) {
+      errorMessage.textContent = 'Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.';
+      return;
+    }
+
+    document.getElementById('loginForm').submit();
+  }
+</script>
+
+</body>
+</html>
