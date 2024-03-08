@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    </head>
+
+<body>
+
+    <script>
+// object predefined method 
+   const obj ={
+    firstName : "monika" ,
+    lastName : "george" ,
+    age  : 23 
+   };
+
+   console.log(Object.keys(obj));  // prints an array of the keys 
+   console.log(Object.values(obj));  // prints an array of the values
+   console.log(Object.entries(obj)); //  returns an array of arrays where each inner array contains a key-value pair of the given object 
+   console.log(obj.hasOwnProperty("firstName"));   // checks of the object has a specific key
+
+   const obj2 = {color:"blue" , boolean:true};
+   console.log(Object.assign(obj,obj2));
+  
+   Object.seal(obj);//This method seals an object, preventing new properties from being added and marking all existing properties as non-configurable. However, values can still be changed on existing properties
+  console.log(Object.isSealed(obj)); // check if the object is sealed
+
+   Object.freeze(obj) //Freezing an object prevents extensions and makes existing properties non-writable and non-configurable
+   obj.age = 25;
+   console.log(obj.age); // 23 
+
+   console.log(Object.is(obj.firstName, obj.lastName)) // checks if two values are the same , here would be false
+   
+   </script>
+</br>
+   <script>
+
+    // Array predefined methods :
+
+    const arr = [1 , 2 , 3 , 2 , 4 ] ;
+    const arr2 = [10 , 20 , 30 , 40 , 50] ;
+
+    console.log(arr.at(3)); // takes an integer(index) and return the value of that integar(index)
+    console.log(arr.concat(arr2)); // concats 2 arrays without changing the actual arrays 
+    console.log(arr.indexOf(2)); // gets the index of the first occurrence
+    console.log(arr.lastIndexOf(2)); // returns the last index at which a given element can be found 
+    console.log(arr.includes(3)); // checks if a specific element exists (true)
+    console.log(Array.isArray(arr)); // checks if the argument is an array
+    arr.push(0); // add element at the end of array
+    arr.unshift(6); // add element at the first index
+    arr.pop(); // removes the last element
+    arr.shift(); // removes the first element
+
+   </script>
+   </br>
+   <script>
+  function outerFunction(outerPar) {
+   
+    console.log(`Outer parameter: ${outerPar}`);
+    function innerFunction(innerPar) {
+        
+        console.log(`Inner parameter: ${innerPar}`);
+        console.log(`Outer parameter within inner function: ${outerPar}`);
+    }
+    
+    return innerFunction;
+}
+
+const closureExample = outerFunction(10);
+
+closureExample(5);
+   </script>
+    </body>
+</html>
