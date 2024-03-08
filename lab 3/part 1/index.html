@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    </head>
+
+<body>
+
+    <script>
+var userName = prompt( "Enter username");
+var password = prompt( "Enter password");
+if(userName == "admin" && password == "421$$"){
+    alert("Welcom login admin");
+}else if (userName != "admin" && password == "421$$"){
+    alert("the username is wrong");
+}else if (userName == "admin" && password != "421$$"){
+    alert(" the password is wrong") 
+}else {
+    alert("the username and password are wrong");
+}
+
+
+    </script>
+    </br>
+    <script>
+  var firstNumber = Number(prompt("enter first number"));
+  var operation = (prompt("enter operation (+ , - , * , /)"));
+  var secondNumber = Number(prompt("enter second number"));
+  if (operation == "+"){
+    alert("the summation is " + (firstNumber + secondNumber));
+  }else if (operation == "-"){
+    alert("the subtraction is " + (firstNumber - secondNumber));
+  }else if (operation == "*"){
+    alert("the multiplication is " + (firstNumber * secondNumber));
+  }else if (operation == "/"){
+    alert("the division is " + (firstNumber / secondNumber));
+  }else{
+    alert("invalid opertaion");
+  }
+
+
+    </script>
+    
+
+
+</body>
+
+</html>
