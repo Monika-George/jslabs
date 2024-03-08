@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+  .slider-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .slider {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 300px;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+
+  .prev-btn,
+  .next-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .prev-btn {
+    margin-right: auto;
+  }
+
+  .next-btn {
+    margin-left: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="slider-container">
+  <button class="prev-btn" onclick="prevSlide()">Previous</button>
+  <div class="slider">
+    <div class="slide"><img src="image1.png" alt="Image 1"></div>
+    <div class="slide"><img src="image2.png" alt="Image 2"></div>
+    <div class="slide"><img src="image3.png" alt="Image 3"></div>
+    <div class="slide"><img src="image4.png" alt="Image 4"></div>
+    <div class="slide"><img src="image5.png" alt="Image 5"></div>
+    <div class="slide"><img src="image6.png" alt="Image 6"></div>
+  </div>
+  <button class="next-btn" onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+  var prevArrow = document.getElementById("prev");
+var nextArrow = document.getElementById("next");
+var img1 = document.getElementById("img");
+var img2 = document.getElementById("img1");
+var img3 = document.getElementById("img2");
+
+var i = 0;
+var imgs = [
+  "../../Lab8/images/1.png",
+  "../../Lab8/images/2.png",
+  "../../Lab8/images/3.png",
+  "../../Lab8/images/4.png",
+  "../../Lab8/images/5.png",
+  "../../Lab8/images/6.png",
+];
+
+function next() {
+  i++;
+  if (i > imgs.length - 1) {
+    i = 0;
+  }
+  updateImagesForNext();
+  
+}
+
+function prev() {
+  i--;
+  if (i < 0) {
+    i = imgs.length - 1;
+  }
+  updateImagesForPrev();
+}
+
+function updateImagesForNext() {
+  let index1 = i % imgs.length;
+  let index2 = (i + 1) % imgs.length;
+  let index3 = (i + 2) % imgs.length;
+
+  img1.src = imgs[index1];
+  img2.src = imgs[index2];
+  img3.src = imgs[index3];
+}
+function updateImagesForPrev() {
+  let index1 = i % imgs.length;
+  let index2 = (i - 1) % imgs.length;
+  let index3 = (i - 2) % imgs.length;
+
+  img1.src = imgs[index1];
+  img2.src = imgs[index2];
+  img3.src = imgs[index3];
+}
+
+prevArrow.addEventListener("click", prev);
+nextArrow.addEventListener("click", next);
+
+setInterval(function () {
+  next();
+}, 5000);
+</script>
+
+</body>
+</html>
