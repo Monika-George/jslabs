@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+  body {
+        background-color: rgb(33, 189, 111);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #login-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="password"],
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: rgb(20, 153, 20);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #129712;
+    }
+    #message {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+  <div id="login-container">
+    <form id="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <button type="button" id="login-button">Login</button>
+      <p id="message"></p>
+    </form>
+  </div>
+<script>
+ 
+  const loginButton = document.getElementById('login-button');
+  const message = document.getElementById('message');
+  loginButton.addEventListener('click', () => {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    if (username === 'admin' && password === '123') {
+      message.textContent = 'Welcome';
+    } else {
+      message.textContent = 'Not registered';
+    }
+  });
+</script>
+</body>
+</html>
