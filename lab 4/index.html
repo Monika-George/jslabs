@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    </head>
+
+<body>
+
+    <script>
+  // using constructor function
+    function person(fullName, money, sleepMood, healthRate){
+        this.fullName = fullName;
+        this.money = money;
+        this.sleepMood = sleepMood;
+        this.healthRate = healthRate ;
+        
+        this.sleep = function(hours){
+            if(hours === 7 ){
+                this.sleepMood = "happy";
+            }else if(hours <7){
+                this.sleepMood = "tired";
+            }else {
+                this.sleepMood = "lazy";
+            }
+        };
+
+        this.eat = function(meals){
+            if(meals === 3){
+                this.healthRate = 100;
+            }else if(meals === 2){
+                this.healthRate = 75;
+            }else if(meals === 1 ){
+                this.healthRate = 50;
+            }
+        };
+
+        this.buy = function(items){
+                this.money -= items * 10 ;
+        };
+    }
+
+    const monika = new person("monika george" , 100, "tired", 75);
+    console.log(monika);
+    console.log(monika.fullName);
+    monika.sleep(7);
+    monika.eat(1);
+    monika.buy(3);
+    console.log(monika);
+
+    </script>
+
+   </br> 
+   <script>
+  // using classes
+    class Person{
+        constructor (fullName, money, sleepMood, healthRate){
+            this.fullName = fullName ;
+            this.money = money ;
+            this.sleepMood = sleepMood ;
+            this.healthRate = healthRate ;
+        }
+
+        sleep(hours){
+            if(hours === 7 ){
+                this.sleepMood = "happy" ;
+            }else if(hours <7){
+                this.sleepMood = "tired" ;
+            }else {
+                this.sleepMood = "lazy" ;
+            }
+ 
+        }
+
+        eat(meals){
+            if(meals === 3){
+                this.healthRate = 100;
+            }else if(meals === 2){
+                this.healthRate = 75;
+            }else if(meals === 1 ){
+                this.healthRate = 50;
+            }
+        }
+
+        buy(items){
+            this.money -= items * 10 ;  
+        }
+    }
+
+    const yasmin = new Person("yasmin nabil" , 200, "happy", 50);
+    console.log(yasmin);
+    console.log(yasmin.fullName);
+    yasmin.sleep(10);
+    yasmin.eat(2);
+    yasmin.buy(3);
+    console.log(yasmin);
+
+   </script>
+
+</br>
+<script>
+    // using OLOO
+      const person1 = {
+        init(fullName, money, sleepMood, healthRate){
+            this.fullName = fullName ;
+            this.money = money ;
+            this.sleepMood = sleepMood ;
+            this.healthRate = healthRate ;
+            return this;
+    },
+    sleep(hours) {
+        if (hours === 7) {
+            this.sleepMood = 'happy';
+        } else if (hours < 7) {
+            this.sleepMood = 'tired';
+        } else {
+            this.sleepMood = 'lazy';
+        }
+    },
+
+    eat(meals) {
+        if (meals === 3) {
+            this.healthRate = 100;
+        } else if (meals === 2) {
+            this.healthRate = 75;
+        } else if (meals === 1) {
+            this.healthRate = 50;
+        }
+    },
+
+    buy(items) {
+        this.money -= items * 10;
+    }
+};
+
+const sara = Object.create(person1).init('sara adel', 100, 'happy', 100);
+
+sara.sleep(7);
+sara.eat(2);
+sara.buy(2);
+
+console.log(sara.fullName); 
+console.log(sara.money); 
+console.log(sara.sleepMood); 
+console.log(sara.healthRate); 
+      
+</script>
+
+</br>
+<script>
+    // using factory function
+      function person2(fullName, money, sleepMood, healthRate){
+        return {
+            fullName,
+             money,
+            sleepMood,
+            healthRate,
+            sleep(hours) {
+                if (hours === 7) {
+                    this.sleepMood = "happy";
+                } else if (hours < 7) {
+                    this.sleepMood = "tired";
+                } else {
+                    this.sleepMood = "lazy";
+                }
+             },
+             eat(meals) {
+                if (meals === 3) {
+                   this.healthRate = 100;
+                } else if (meals === 2) {
+                    this.healthRate = 75;
+                } else if (meals === 1) {
+                    this.healthRate = 50;
+                }
+            },
+            buy(items) {
+                this.money -= items * 10;
+            }
+            };
+        }
+        const heba = person2("heba monir", 300, "lazy", 100);
+        console.log(heba);
+        heba.sleep(5);
+        heba.eat(1);
+        heba.buy(2);
+        console.log(heba);
+</script>
+</body>
+</html>
