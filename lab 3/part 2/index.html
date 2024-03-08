@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    </head>
+
+<body>
+
+    <script>
+      const numbers = prompt("Enter how many numbers you want to add ")
+      const nums = [];
+      let sum = 0;
+    for (let i = 1; i <= numbers; i++) {
+        nums.push(parseFloat(prompt(`Enter the Number ${i}/${numbers}`)));
+        sum += nums[i-1];
+    }
+    const avg = sum / numbers;
+    alert(`The sum of the numbers is : ${sum} and the average is : ${avg}`);
+    </script>
+    </br>
+    <script>
+       
+const contacts = [];
+
+function add() {
+    const name = prompt("Enter the name of the contact:");
+    const phoneNumber = prompt("Enter the phone number:");
+
+    const contact = {
+        name: name,
+        phoneNumber: phoneNumber
+    };
+
+    contacts.push(contact);
+    alert("Contact added successfully!");
+   
+    
+}
+
+
+function search() {
+    const searchTerm = prompt("Enter the name or phone number to search for:");
+
+    const Result = contacts.find(contact => {
+        return contact.name === searchTerm || contact.phoneNumber === searchTerm;
+    });
+
+    
+    if (Result) {
+        alert(`Name: ${Result.name}\nPhone Number: ${Result.phoneNumber}`);
+    } else {
+        alert("Contact not found!");
+    }
+}
+
+function choice() {
+    while (true) {
+        const operation = prompt("Enter operation (add / search / exit)").toLowerCase();
+
+        switch (operation) {
+            case "add":
+                add();
+                break;
+            case "search":
+                search();
+                break;
+            case "exit":
+                return; 
+            default:
+                alert("Invalid operation. Please enter 'add', 'search', or 'exit'");
+        }
+    }
+}
+
+choice();
+
+    </script>
+
+   </body>
+</html> 
